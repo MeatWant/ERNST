@@ -1,0 +1,54 @@
+name: openwebui-ollama-stack
+
+networks:
+  owui_net:
+    name: owui_net         # fester Name, aber von Compose erstellt/verwaltet
+    driver: bridge
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./data/ollama:/root/.ollama
+    environment:
+      - OLLAMA_NUM_PARALLEL=2
+      - OLLAMA_MAX_LOADED_MODELS=1
+      - OLLAMA_KEEP_ALIVE=5m
+    # <<< WICHTIG: GPU über 'deploy.resources.reservations.devices'     # GPU später aktivieren (Docker Desktop → Resources → GPU):
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: ["gpu"]
+    # robuster Healthcheck ohne curl/wget
+    healthcheck:
+      test: ["CMD", "sh", "-lc", "ollama list >/dev/null 2>&1 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+      start_period: 30s
+    networks: [owui_net]    
+
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: openwebui
+    restart: unless-stopped
+    ports:
+      - "3000:8080"
+    volumes:
+      - ./data/openwebui:/app/backend/data
+      - ./data/hf-cache:/root/.cache/huggingface   # <— HF-Cache persistent machen
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434
+      - HF_HOME=/root/.cache/huggingface          # fester Cache-Pfad im Container
+      # optional: - WEBUI_AUTH=False
+    depends_on:
+      ollama:
+        condition: service_healthy
+    networks: [owui_net]
