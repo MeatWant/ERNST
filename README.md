@@ -22,6 +22,8 @@ Kenntnisse in Docker, PowerShell und KI-Modellen sind hilfreich.
 
 ## Quickstart
 
+Docker Desktop starten und sicherstellen, dass die GPU-Unterstützung aktiviert ist.
+
 ### Container starten
 
 Startet Ollama und OpenWebUI (nicht zwingend, wenn nur Ollama genutzt wird):
@@ -44,7 +46,7 @@ Andere Modelle können in `pull_models.ps1` ergänzt werden.
 Screenshots in `docs\screenshots\raw` ablegen.
 - Format der Screenshots: PNG, JPG, JPEG, BMP, GIF
 - Screenshots sollten nicht größer als 1-2 MB sein. (max. 1920x1080 empfohlen)
-- Namenskonvention: `YYYYMMDD_Module_Screen_View.png` (z. B. `20250817_Agent_Chat_MainView.png`, `20250817_Browser_Search_Results.png`)
+- Namenskonvention: `YYYYMMDD_Module_Screen_View.png` (z. B. `20250817_Agent_Chat_MainView.png`, `20250817_Browser_Search_Results.png`, `20250817_Module_View_Function.png`)
 
 ### Skript für Screenshots
 Die Verarbeitung von Screenshots erfolgt mit:
@@ -57,7 +59,15 @@ Ausgabe:
 - Markdown-Sidecars in `docs\screenshots\captions\`
 - Index in `docs\screenshots\_index.md`
 
+
+## Haftungsausschluss
 Erstellt 2025 von Stefan Roll, Verwendung auf eigene Gefahr.
 
 Ursprünglich als Spaßprojekt gestartet, um die Möglichkeiten von KI-Modellen in der Dokumentationserstellung zu erkunden.
 Jedoch: Aus Spaß wurde ERNST – und ERNST ist jetzt ein KI-Projekt.
+
+Alle Modelle sind Open Source, die Nutzung unterliegt den jeweiligen Lizenzbedingungen der Entwickler.
+
+Docker-Images von Ollama sind proprietär, aber die Modelle selbst sind frei verfügbar. Die Nutzung erfolgt auf eigenes Risiko.
+
+Alle nicht genannten Marken- und Produktnamen sind Eigentum der jeweiligen Inhaber.
