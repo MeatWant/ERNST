@@ -1,0 +1,24 @@
+# Ignore node modules and log files
+
+/node_modules
+/dist
+/build
+/vendor
+
+*.log
+.DS_Store
+.vscode
+.env
+
+# Ignore Data
+/data/hf-cache/hub/*
+/data/hf-cache/xet/*
+/data/ollama/models/*
+/data/ollama/id_*
+/data/openwebui/*
+
+/docs/screenshots/captions/*
+/docs/screenshots/raw/*
+/docs/screenshots/_index.md
+
+/scripts/Archiv

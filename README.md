@@ -3,7 +3,7 @@
 Mit ERNST können Sie verschiedene KI-Modelle verwenden, mit Hilfe von Ollama, um daraus automatisierte Bildunterschriften aus Screenshots zu generieren.
 Die generierten Bildunterschriften werden in Markdown-Sidecar-Dateien gespeichert. Diese könnnen dann unter anderem in Dokumentationen eingebunden werden.
 
-Hauptzweck ist die Verwendung der Bildunterschriften als Trainingsdaten, damit KI Modelle (Chatbots) mit Hilfe mit Retrieval-Augmented Generation (RAG) 
+Hauptzweck ist jedoch die Verwendung der Bildunterschriften als Trainingsdaten, damit KI Modelle (Chatbots) mit Hilfe mit Retrieval-Augmented Generation (RAG) 
 bessere Antworten auf Fragen zu einer bestimmten Software geben können.
 
 ERNST läuft lokal in Docker-Containern und verwendet Ollama für die KI-Modelle.
