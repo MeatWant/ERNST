@@ -58,3 +58,6 @@ Ausgabe:
 - Index in `docs\screenshots\_index.md`
 
 Erstellt 2025 von Stefan Roll, Verwendung auf eigene Gefahr.
+
+Ursprünglich als Spaßprojekt gestartet, um die Möglichkeiten von KI-Modellen in der Dokumentationserstellung zu erkunden.
+Jedoch: Aus Spaß wurde ERNST – und ERNST ist jetzt ein KI-Projekt.
